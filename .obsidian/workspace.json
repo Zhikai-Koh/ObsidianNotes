@@ -1,0 +1,386 @@
+{
+  "main": {
+    "id": "8493bc54e365d631",
+    "type": "split",
+    "children": [
+      {
+        "id": "cd9bc18dba87ea13",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dd8606f6ba45e36e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "React/Forms.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Forms"
+            }
+          },
+          {
+            "id": "f6142e25ed5f4feb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "React/Portals.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Portals"
+            }
+          },
+          {
+            "id": "7625d8b604d77df2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "React/Suspense.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Suspense"
+            }
+          },
+          {
+            "id": "f608a1f82108af71",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "React/Transitions.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Transitions"
+            }
+          },
+          {
+            "id": "9407b9d1a4a72dd3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "React/ForwardRef.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ForwardRef"
+            }
+          },
+          {
+            "id": "16ba4f5d9cca0eb2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "React/Hooks.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Hooks"
+            }
+          },
+          {
+            "id": "66b8e0322f7b4836",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "React/useEffect.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "useEffect"
+            }
+          },
+          {
+            "id": "1cf97eb71985d148",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "React/useContext.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "useContext"
+            }
+          },
+          {
+            "id": "f21bd08dbabeb179",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "React/useRef.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "useRef"
+            }
+          },
+          {
+            "id": "cdaaf8f09c30229e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "React/Conditionals.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Conditionals"
+            }
+          },
+          {
+            "id": "bcb8b53e4d8c4fad",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "React/Events.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Events"
+            }
+          },
+          {
+            "id": "824dccf96a481f7c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "React/Forms.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Forms"
+            }
+          },
+          {
+            "id": "3ef7bd41f5a5d41a",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ],
+        "currentTab": 8
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "84cc5522601e6960",
+    "type": "split",
+    "children": [
+      {
+        "id": "562fc1547598d6e2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "71d363dd9fe10095",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "byCreatedTimeReverse",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "4db885d6d6171987",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "79119db995adf9ab",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "e055c1c90ad73e0c",
+    "type": "split",
+    "children": [
+      {
+        "id": "62347018007f7456",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d926d4ae82f8eea3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "React/Attributes.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Attributes"
+            }
+          },
+          {
+            "id": "b98baa44c2d0a4eb",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "React/Attributes.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Attributes"
+            }
+          },
+          {
+            "id": "fb1547fb26bce5f8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "34d91fdce0e1aa76",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "508daa96f263407b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "React/Attributes.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Attributes"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "graph:Open graph view": false,
+      "switcher:Open quick switcher": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "f21bd08dbabeb179",
+  "lastOpenFiles": [
+    "Github",
+    "untitled folder",
+    "'/Users/zhikaikoh/Documents/Obsidian Vault/React'",
+    "'/Users/zhikaikoh/Documents/Obsidian Vault",
+    "'/Users/zhikaikoh/Documents",
+    "'/Users/zhikaikoh",
+    "'/Users",
+    "'",
+    "React/useRef.md",
+    "React/useContext.md",
+    "React/useEffect.md",
+    "React/useState.md",
+    "React/Router.md",
+    "React/Hooks.md",
+    "React/Hooks",
+    "React/Portals.md",
+    "React/ForwardRef.md",
+    "React/Transitions.md",
+    "Welcome.md",
+    "React/Suspense.md",
+    "React/Forms.md",
+    "React/Lists.md",
+    "React/Conditionals.md",
+    "React/Events.md",
+    "React/Props.md",
+    "React/Components.md",
+    "React/Attributes.md",
+    "Untitled.canvas",
+    "React/If Statements.md",
+    "Untitled.md",
+    "React"
+  ]
+}
