@@ -1,5 +1,6 @@
 `forwardRef` lets your component pass a reference to one of its children. It's like giving a direct reference to a ==DOM element== inside your component.
 
+Similarly, check out [[useRef]]
 ### Example:
 ```jsx
 import { forwardRef, useRef } from 'react';
@@ -18,7 +19,7 @@ function App() {
   return (
     <div>
 	    {/* ref = {inputRef} stores a reference of MyInput to inputRef */}
-	    {/* Allows App()(parent) access to input(child) */}
+	    {/* Allows App()(parent) to access input(child) */}
       <MyInput ref={inputRef} placeholder="Type here..." />
       <button onClick={focusInput}>Focus Input</button>
     </div>

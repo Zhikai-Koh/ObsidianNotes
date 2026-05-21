@@ -33,6 +33,7 @@ createRoot(document.getElementById('root')).render(
 );
 ```
 To make useEffect run on multiple dependencies, just add more stuff to the [count] array.
+To make useEffect only run once, use [] as its dependency
 
 ### Effect Cleanup:
 ```jsx
