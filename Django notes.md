@@ -100,8 +100,7 @@ def create_listing(request):
     return Response(serializer.errors, status=400)
 ```
 
-####
-Nesting serializers with foreign keys:
+#### Nesting serializers with foreign keys:
 ```python
 # serializers.py
 
