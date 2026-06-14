@@ -27,7 +27,15 @@ To create user for your django to use:
 
 ```bash
 CREATE USER cart_admin WITH PASSWORD 'secure_pass123'; 
-GRANT ALL PRIVILEGES ON DATABASE shopping_db TO cart_admin;
+
+-- Connect to DB
+\c shopping_db
+
+-- Grant all privileges on public schema to specific user
+GRANT ALL ON SCHEMA public TO cart_admin;
+
+-- or make the user the owner of the schema
+ALTER SCHEMA public OWNER TO cart_admin;
 ```
 
 To quit postgre on cli:

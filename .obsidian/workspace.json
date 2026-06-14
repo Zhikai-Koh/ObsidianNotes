@@ -125,54 +125,138 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "React/Attributes.md",
+                "file": "React/useRef.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Attributes"
+              "title": "useRef"
             }
           },
           {
-            "id": "a5eaaa2558588d9c",
+            "id": "8ddd8fbba1b79a4a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Run React + Django.md",
+                "file": "React/useReducer.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Run React + Django"
+              "title": "useReducer"
             }
           },
           {
-            "id": "e2578fbb77c972cf",
+            "id": "c6cdc31790c809a0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Run React + Django.md",
+                "file": "React/useReducer.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Run React + Django"
+              "title": "useReducer"
             }
           },
           {
-            "id": "a57cee006e679501",
+            "id": "b752dddd87ed1040",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Using PostgreSQL with django.md",
+                "file": "React/useCallback.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Using PostgreSQL with django"
+              "title": "useCallback"
+            }
+          },
+          {
+            "id": "4a4261cb212e4acc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Welcome.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Welcome"
+            }
+          },
+          {
+            "id": "af2206fcd1e4de5a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Django notes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Django notes"
+            }
+          },
+          {
+            "id": "a8d2b0f069fb49db",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Django ORM.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Django ORM"
+            }
+          },
+          {
+            "id": "b56477f26984286c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "React/useContext.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "useContext"
+            }
+          },
+          {
+            "id": "6994df7edaa9d22d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CSS Notes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "CSS Notes"
+            }
+          },
+          {
+            "id": "fd330aa78503b99c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Github Notes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Github Notes"
             }
           },
           {
@@ -228,7 +312,7 @@
             }
           }
         ],
-        "currentTab": 11
+        "currentTab": 17
       }
     ],
     "direction": "vertical"
@@ -391,24 +475,35 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a57cee006e679501",
+  "active": "fd330aa78503b99c",
   "lastOpenFiles": [
     "Run React + Django.md",
-    "Package.json.md",
-    "Django notes.md",
-    "Using PostgreSQL with django.md",
-    "Untitled",
-    "Welcome.md",
-    "Django ORM.md",
-    "CSS Notes.md",
-    "Minutes Forge Hackathon.md",
-    "React/Attributes.md",
-    "Django/Brainstorm.md",
-    "React/useReducer.md",
-    "Django",
-    "React/useRef.md",
-    "React/useMemo.md",
+    "React/ForwardRef.md",
+    "React/Events.md",
+    "React/Conditionals.md",
+    "React/Components.md",
+    "React/Forms.md",
+    "React/Suspense.md",
+    "React/Transitions.md",
+    "React/useState.md",
+    "React/useEffect.md",
+    "React/useContext.md",
     "React/useCallback.md",
+    "React/Attributes.md",
+    "React/useReducer.md",
+    "React/Portals.md",
+    "Django notes.md",
+    "Django ORM.md",
+    "Using PostgreSQL with django.md",
+    "Package.json.md",
+    "Welcome.md",
+    "React/Lists.md",
+    "React/Hooks.md",
+    "React/Router.md",
+    "Github Notes.md",
+    "CSS Notes.md",
+    "React/useRef.md",
+    "desktop.ini",
     "Github",
     "untitled folder",
     "'/Users/zhikaikoh/Documents/Obsidian Vault/React'",
@@ -417,18 +512,7 @@
     "'/Users/zhikaikoh",
     "'/Users",
     "'",
-    "React/useContext.md",
-    "React/useEffect.md",
-    "React/useState.md",
-    "React/Router.md",
-    "React/Hooks.md",
-    "React/Portals.md",
-    "React/ForwardRef.md",
-    "React/Transitions.md",
-    "React/Suspense.md",
-    "React/Forms.md",
-    "React/Lists.md",
-    "React/Conditionals.md",
+    "React/Hooks",
     "Untitled.canvas"
   ]
 }
