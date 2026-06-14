@@ -125,124 +125,54 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "React/useRef.md",
+                "file": "React/Attributes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "useRef"
+              "title": "Attributes"
             }
           },
           {
-            "id": "8ddd8fbba1b79a4a",
+            "id": "a5eaaa2558588d9c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "React/useReducer.md",
+                "file": "Run React + Django.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "useReducer"
+              "title": "Run React + Django"
             }
           },
           {
-            "id": "c6cdc31790c809a0",
+            "id": "e2578fbb77c972cf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "React/useReducer.md",
+                "file": "Run React + Django.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "useReducer"
+              "title": "Run React + Django"
             }
           },
           {
-            "id": "b752dddd87ed1040",
+            "id": "a57cee006e679501",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "React/useCallback.md",
+                "file": "Using PostgreSQL with django.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "useCallback"
-            }
-          },
-          {
-            "id": "4a4261cb212e4acc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Welcome.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Welcome"
-            }
-          },
-          {
-            "id": "af2206fcd1e4de5a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Django notes.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Django notes"
-            }
-          },
-          {
-            "id": "a8d2b0f069fb49db",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Django ORM.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Django ORM"
-            }
-          },
-          {
-            "id": "b56477f26984286c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "React/useContext.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "useContext"
-            }
-          },
-          {
-            "id": "6994df7edaa9d22d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CSS Notes.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "CSS Notes"
+              "title": "Using PostgreSQL with django"
             }
           },
           {
@@ -298,7 +228,7 @@
             }
           }
         ],
-        "currentTab": 16
+        "currentTab": 11
       }
     ],
     "direction": "vertical"
@@ -461,27 +391,24 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "6994df7edaa9d22d",
+  "active": "a57cee006e679501",
   "lastOpenFiles": [
-    "React/ForwardRef.md",
-    "React/useRef.md",
-    "CSS Notes.md",
-    "React/useContext.md",
-    "Django notes.md",
-    "Django ORM.md",
     "Run React + Django.md",
-    "React/useCallback.md",
-    "React/Transitions.md",
-    "React/Router.md",
-    "React/Portals.md",
+    "Package.json.md",
+    "Django notes.md",
+    "Using PostgreSQL with django.md",
+    "Untitled",
     "Welcome.md",
-    "React/useState.md",
-    "React/Forms.md",
+    "Django ORM.md",
+    "CSS Notes.md",
+    "Minutes Forge Hackathon.md",
     "React/Attributes.md",
-    "React/useMemo.md",
-    "desktop.ini",
-    "React/useEffect.md",
+    "Django/Brainstorm.md",
     "React/useReducer.md",
+    "Django",
+    "React/useRef.md",
+    "React/useMemo.md",
+    "React/useCallback.md",
     "Github",
     "untitled folder",
     "'/Users/zhikaikoh/Documents/Obsidian Vault/React'",
@@ -490,15 +417,18 @@
     "'/Users/zhikaikoh",
     "'/Users",
     "'",
+    "React/useContext.md",
+    "React/useEffect.md",
+    "React/useState.md",
+    "React/Router.md",
     "React/Hooks.md",
-    "React/Hooks",
+    "React/Portals.md",
+    "React/ForwardRef.md",
+    "React/Transitions.md",
     "React/Suspense.md",
+    "React/Forms.md",
     "React/Lists.md",
     "React/Conditionals.md",
-    "React/Events.md",
-    "React/Props.md",
-    "React/Components.md",
-    "Untitled.canvas",
-    "React/If Statements.md"
+    "Untitled.canvas"
   ]
 }
