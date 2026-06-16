@@ -279,12 +279,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pip notes.md",
+                "file": "Django Related/Django notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Pip notes"
+              "title": "Django notes"
             }
           },
           {
@@ -505,13 +505,13 @@
   },
   "active": "ceb598e86489e264",
   "lastOpenFiles": [
+    "Django Related/Django ORM.md",
+    "Django Related/Run React + Django.md",
     "Django Related/Using PostgreSQL with django.md",
     "Pip notes.md",
     "Django Related/Django notes.md",
     "CSS Notes.md",
     "Django Related",
-    "Django Related/Django ORM.md",
-    "Django Related/Run React + Django.md",
     "Welcome.md",
     "Github Notes.md",
     "Django Related/Package.json.md",

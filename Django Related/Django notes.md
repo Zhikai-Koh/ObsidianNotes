@@ -401,13 +401,21 @@ path('post/<slug:post_slug>/', views.post)  # Matches: /post/my-first-blog/
 #### Modular Routing (`include`)
 
 Keep apps clean by nesting URLs. The master router chops off its prefix and hands the rest down.
-
-Python
-
-```
-# project/urls.py (Master)
-path('api/', include('api.urls')) 
+```python
+#This hands off everything that starts with blog/
+path('blog/', include('blog.urls')) 
 
 # api/urls.py (App-specific)
 path('users/', views.list_users)  # Final URL: /api/users/
+```
+
+Include will pass the result to this file instead and find where to go so that urls.py is not so crowded
+```python
+#In blog/urls.py
+
+from django.urls import path from . 
+import views 
+urlpatterns = [ path('', views.blog_home), # Matches: /blog/ 
+				path('latest/', views.blog_latest), # Matches: /blog/latest/ 
+				]
 ```
