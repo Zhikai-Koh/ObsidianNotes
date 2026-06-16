@@ -233,6 +233,35 @@ export function CartButton() {
 }
 ```
 
+Alternatively if need to deal with images:
+```jsx
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData();
+        formData.append("item_name", item_name);
+        formData.append("item_price", item_price);
+        formData.append("category", '1');
+
+        if (imageFile) {
+            formData.append("image", imageFile);
+        }
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/listings/`, {
+                method: "POST",
+                body: formData,
+            });
+
+            if (response.ok) {
+                alert("Listing added locally successfully!");
+            }
+
+        } catch (error) {
+            console.error("Error saving listing:", error);
+        }
+    };
+```
 #### Get:
 ```Javascript
 import React, { useState, useEffect } from 'react';
@@ -296,3 +325,89 @@ export default function SnippetList() {
 }
 ```
 
+### urls.py
+
+```
+# Django `urls.py` Cheat Sheet
+
+## 📌 TL;DR Core Concept
+`urlpatterns` is Django's **traffic controller**. It matches incoming browser URLs (minus domain & leading slash) to specific backend views, scanning sequentially from **top to bottom**. 
+* Connected via `ROOT_URLCONF` in `settings.py`.
+```
+---
+## Anatomy of a Path
+```python
+path('route/', views.function_name, name='unique-nickname')
+```
+
+- **Route:** The URL pattern string. Always include a trailing slash `/`.
+- **View:** The code that runs when the URL is matched.
+- **Name:** A unique nickname. Used for reverse URL lookups so changing the URL string won't break your app.
+
+#### Elaboration on name:
+
+Usually to use on HTML:
+```HTML
+<a href="{% url 'article-view' pk=article.id %}">Read Article</a>
+```
+This will tell Django to substitute this tag with:
+```HTML
+<a href="/articles/42/">Read Article</a>
+```
+
+If you require the URL inside Django's views.py:
+- `reverse()`: Computes the routing table and returns a raw string (e.g., `"/path/to/page/"`).
+- `redirect()`: A shortcut that calls `reverse()` internally and immediately sends an HTTP 302 redirect header back to the browser.
+
+e.g
+```Python
+from django.urls import reverse 
+def get_success_url(request): 
+	# Returns the literal string: "/articles/42/" 
+	my_url = reverse('article-view', kwargs={'pk': 42}) return my_url
+```
+
+```Python
+from django.shortcuts import redirect 
+def delete_article(request, pk): 
+	article = Article.objects.get(pk=pk) 
+	article.delete() 
+	# Django calculates the path for 'home' and instantly issues a 302 redirect return redirect('home')
+```
+
+To use with React, need to create a hardcoded API Router instead of using the name parameter as React cannot access Django's python environment to do reverse().
+
+E.g.
+```Javascript
+// src/apiRoutes.js 
+const API_BASE = 'https://api.yourdomain.com'; 
+export const apiRoutes = { 
+login: `${API_BASE}/auth/login/`, // For dynamic URLs, use a function that returns a string 
+userDetail: (userId) => `${API_BASE}/profiles/view/${userId}/`, 
+blogPost: (slug) => `${API_BASE}/blog/posts/${slug}/`, };
+```
+
+
+#### Dynamic Routing (Path Converters)
+Capture values from the URL using `<type:variable_name>`. These are passed directly as arguments to your view.
+```python
+path('user/<int:user_id>/', views.profile)  # Matches: /user/42/
+path('post/<slug:post_slug>/', views.post)  # Matches: /post/my-first-blog/
+```
+- `<int:>` - Positive integers.
+- `<str:>` - Any non-empty string (excluding `/`). _Default_.
+- `<slug:>` - Letters, numbers, hyphens, and underscores.
+- `<uuid:>` - Formatted UUIDs.
+#### Modular Routing (`include`)
+
+Keep apps clean by nesting URLs. The master router chops off its prefix and hands the rest down.
+
+Python
+
+```
+# project/urls.py (Master)
+path('api/', include('api.urls')) 
+
+# api/urls.py (App-specific)
+path('users/', views.list_users)  # Final URL: /api/users/
+```
