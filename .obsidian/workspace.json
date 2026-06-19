@@ -181,6 +181,7 @@
             "state": {
               "type": "markdown",
               "state": {
+<<<<<<< HEAD
                 "file": "Welcome.md",
                 "mode": "source",
                 "source": false
@@ -280,6 +281,9 @@
               "type": "markdown",
               "state": {
                 "file": "React/useEffect.md",
+=======
+                "file": "Django Related/Django notes.md",
+>>>>>>> e0d2f9e7b1b5c0dd6e3ad052f06f57ff8e0c9b25
                 "mode": "source",
                 "source": false
               },
@@ -340,7 +344,7 @@
             }
           }
         ],
-        "currentTab": 19
+        "currentTab": 12
       }
     ],
     "direction": "vertical"
@@ -503,14 +507,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ceb598e86489e264",
+  "active": "4a4261cb212e4acc",
   "lastOpenFiles": [
+<<<<<<< HEAD
     "React/useContext.md",
+=======
+>>>>>>> e0d2f9e7b1b5c0dd6e3ad052f06f57ff8e0c9b25
     "Django Related/Run React + Django.md",
     "Django Related/Django notes.md",
     "Django Related/Django ORM.md",
     "Django Related/Using PostgreSQL with django.md",
+    "React/useMemo.md",
     "Pip notes.md",
+<<<<<<< HEAD
     "CSS Notes.md",
     "Django Related",
     "Welcome.md",
@@ -532,7 +541,21 @@
     "React/Lists.md",
     "React/Hooks.md",
     "React/Router.md",
+=======
+    "Github Notes.md",
+    "Django Related/Package.json.md",
+    "Django Related/Django notes.md",
+    "Django Related/Django ORM.md",
+    "Django Related",
+    "CSS Notes.md",
+>>>>>>> e0d2f9e7b1b5c0dd6e3ad052f06f57ff8e0c9b25
     "desktop.ini",
+    "React/useEffect.md",
+    "React/useCallback.md",
+    "React/useReducer.md",
+    "React/useRef.md",
+    "React/useState.md",
+    "React/ForwardRef.md",
     "Github",
     "untitled folder",
     "'/Users/zhikaikoh/Documents/Obsidian Vault/React'",
@@ -541,6 +564,17 @@
     "'/Users/zhikaikoh",
     "'/Users",
     "'",
+    "React/useContext.md",
+    "React/Router.md",
+    "React/Hooks.md",
+    "React/Portals.md",
+    "React/Transitions.md",
+    "Welcome.md",
+    "React/Suspense.md",
+    "React/Forms.md",
+    "React/Lists.md",
+    "React/Conditionals.md",
+    "React/Events.md",
     "Untitled.canvas"
   ]
 }
