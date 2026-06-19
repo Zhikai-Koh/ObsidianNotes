@@ -51,6 +51,8 @@ category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='l
 
 ### serializers.py
 
+Serializers is just how to convert JSON to object that Django can use! If the data is not being transported from backend to frontend or viceversa, no need to serialise it :D
+
 ```python
 # serializers.py
 from rest_framework import serializers
