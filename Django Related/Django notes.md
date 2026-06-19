@@ -1,3 +1,5 @@
+
+### Using Serializer.py vs Models.py
 How to decide whether rules such as 
 `item_price = models.DecimalField(max_digits=10, decimal_places=2)`
 and
@@ -68,13 +70,33 @@ class Listing(models.Model):
 ```
 **on_delete=models.CASCADE** is vital. It tells PostgreSQL: "If this Category is deleted, automatically delete all the listings assigned to it."
 #### Why related_name Matters
-When you define your ForeignKey, the related_name attribute determines the name of the Python property you use to initiate this search.
-```
+
+related_name allows you to do reverse searching. For example,
+```python
+#inside Listing's model.py
 category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='listings')
 ```
+
+By having related_name = 'listings', I can access listings that are related to a specific category as such:
+
+```python
+# 1. Fetch the specific category row from the database 
+my_category = Category.objects.get(id=id) 
+
+# 2. Access the reverse relationship to get all connected listings 
+all_category_listings = my_category.listings.all()
+```
+
+Even if there is no listings column in my category table.
+
+---
+
+When you define your ForeignKey, the related_name attribute determines the name of the Python property you use to initiate this search.
+
 - If you set related_name='listings', you type: my_category.listings.all()
 - If you set related_name='products', you type: my_category.products.all()
 - If you **omit** related_name, Django creates a default one for you using the model name lowercase followed by _set: my_category.listing_set.all()
+
 
 #### Updating DB (Migrations)
 1. Inspects models.py and generates a "blueprint" file of the changes
@@ -366,12 +388,14 @@ export default function SnippetList() {
 ```
 # Django `urls.py` Cheat Sheet
 
-## 📌 TL;DR Core Concept
-`urlpatterns` is Django's **traffic controller**. It matches incoming browser URLs (minus domain & leading slash) to specific backend views, scanning sequentially from **top to bottom**. 
+## TL;DR Core Concept
+`urlpatterns` is Django's traffic controller.
+It matches incoming browser URLs (minus domain & leading slash) to specific backend views, scanning sequentially from top to bottom. 
+
 * Connected via `ROOT_URLCONF` in `settings.py`.
 ```
 ---
-## Anatomy of a Path
+### Anatomy of a Path
 ```python
 path('route/', views.function_name, name='unique-nickname')
 ```
@@ -454,4 +478,50 @@ import views
 urlpatterns = [ path('', views.blog_home), # Matches: /blog/ 
 				path('latest/', views.blog_latest), # Matches: /blog/latest/ 
 				]
+```
+
+### apps.py
+
+Inside app.py have a method called `ready()` Django runs this function ONCE when starting up web server.
+
+Import signals in here so python registers event decorators before any traffic hits the endpoints.
+
+E.g.
+```python
+# accounts/apps.py
+from django.apps import AppConfig
+
+class AccountsConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'accounts' # Matches the folder name
+
+    # This method runs the millisecond Django finishes initializing
+    def ready(self):
+        import accounts.signals  # 🌟 This forces Django to read the signals file!
+```
+
+### signals.py
+
+signals.py is Django's built in notification network.
+It allows certain actions in the app to broadcast a announcement to the rest of the project.
+
+E.g.
+```python
+# accounts/signals.py
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User
+from .models import Profile
+
+# 1. The @receiver decorator connects this function to the User model's post_save alarm.
+#sender=User makes it so that the function only wakes up when a User table input is touched.
+@receiver(post_save, sender=User)
+#sender is which model sent the notification
+#instance is the exact python object that was saved
+#kwargs catch all dictionary for any extra parameters passed along with the signal that is not explicity named.
+def create_user_profile(sender, instance, created, **kwargs):
+    # 2. 'created' is a True/False flag. It's True only if a brand-new row was made.
+    if created:
+        # 3. 'instance' is the actual User object that was just saved.
+        Profile.objects.create(user=instance)
 ```

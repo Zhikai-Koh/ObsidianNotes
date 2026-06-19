@@ -243,12 +243,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Django Related/Run React + Django.md",
+                "file": "React/useEffect.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Run React + Django"
+              "title": "useEffect"
             }
           }
         ],
@@ -417,26 +417,26 @@
   },
   "active": "3ef7bd41f5a5d41a",
   "lastOpenFiles": [
+    "React/useRef.md",
+    "React/useCallback.md",
+    "Django Related/Django notes.md",
+    "Django Related/Django ORM.md",
+    "Django Related/Run React + Django.md",
     "Django Related/Package.json.md",
     "React/Forms.md",
     "React/Events.md",
     "React/Conditionals.md",
-    "Django Related/Django notes.md",
     "Django Related/Using PostgreSQL with django.md",
-    "React/useRef.md",
     "React/useEffect.md",
     "React/ForwardRef.md",
     "CSS Notes.md",
     "React/useContext.md",
     "Welcome.md",
-    "React/useCallback.md",
     "React/useReducer.md",
     "React/Hooks.md",
     "React/Transitions.md",
     "React/Suspense.md",
     "React/Portals.md",
-    "Django Related/Run React + Django.md",
-    "Django Related/Django ORM.md",
     "Pip notes.md",
     "Django Related",
     "Github Notes.md",
