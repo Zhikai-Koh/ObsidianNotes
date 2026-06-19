@@ -1,3 +1,37 @@
+How to decide whether rules such as 
+`item_price = models.DecimalField(max_digits=10, decimal_places=2)`
+and
+`product_details = ListingSerializer(source='product', read_only=True)`
+should be placed in models.py or serializers.py:
+
+Put in models.py if it defines the shape of your DB or directly control your tables.
+Put in serializers.py if it controls how data looks when being passed as JSON, or if it handles incoming client inputs.
+
+E.g.
+
+```python
+#In models.py IF:
+
+#Formatting Prices:
+item_price = models.DecimalField(max_digits=10, decimal_places=2)
+#Foreign Keys:
+category = models.ForeignKey(Categories, on_delete=models.CASCADE)
+#System Constraints:
+item_name = models.CharField(max_length=255, null=False)
+
+#In serializers.py IF:
+
+#Nesting Full Objects: (You only got product ID, but want to get full product details from a serializer called ListingSerializer through the product ID)
+product_details = ListingSerializer(source='product', read_only=True)
+
+#Hiding sensitive output:
+#Databse keep hashed vers. of password, but serializer ensure that when Django response with 201 Created status, the password string is not sent with the outgoing JSON. Hence the write_only = true.
+password = serializers.CharField(write_only=True)
+
+#Double-Entry Validation
+#Don't need to have a password_confirm column on the DB so do validation in serializer.py.
+password_confirm = serializers.CharField(write_only=True)
+```
 
 ### models.py
 ```python

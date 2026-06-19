@@ -43,26 +43,20 @@ createRoot(document.getElementById('root')).render(
 This example is similar to the one shown in [[ForwardRef]]
 
 ```jsx
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 
 function App() {
-  const [inputValue, setInputValue] = useState("");
-  const previousInputValue = useRef("");
+  const inputElement = useRef();
 
-  useEffect(() => {
-    previousInputValue.current = inputValue;
-  }, [inputValue]);
+  const focusInput = () => {
+    inputElement.current.focus();
+  };
 
   return (
     <>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      <h2>Current Value: {inputValue}</h2>
-      <h2>Previous Value: {previousInputValue.current}</h2>
+      <input type="text" ref={inputElement} />
+      <button onClick={focusInput}>Focus Input</button>
     </>
   );
 }
