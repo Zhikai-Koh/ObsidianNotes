@@ -34,4 +34,4 @@ To quit postgre on cli:
 `\q`
 
 ### For development on Railway:
-FIND OUT!!!
+FIND OUT!!
