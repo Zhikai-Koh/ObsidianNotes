@@ -36,6 +36,9 @@ To make useEffect run on multiple dependencies, just add more stuff to the [coun
 To make useEffect only run once, use [] as its dependency
 
 ### Effect Cleanup:
+
+return statement in useEffect() will run when we navigate to another page!
+
 ```jsx
 function Timer() {
   const [count, setCount] = useState(0);

@@ -1,4 +1,40 @@
 
+### Using Serializer.py vs Models.py
+How to decide whether rules such as 
+`item_price = models.DecimalField(max_digits=10, decimal_places=2)`
+and
+`product_details = ListingSerializer(source='product', read_only=True)`
+should be placed in models.py or serializers.py:
+
+Put in models.py if it defines the shape of your DB or directly control your tables.
+Put in serializers.py if it controls how data looks when being passed as JSON, or if it handles incoming client inputs.
+
+E.g.
+
+```python
+#In models.py IF:
+
+#Formatting Prices:
+item_price = models.DecimalField(max_digits=10, decimal_places=2)
+#Foreign Keys:
+category = models.ForeignKey(Categories, on_delete=models.CASCADE)
+#System Constraints:
+item_name = models.CharField(max_length=255, null=False)
+
+#In serializers.py IF:
+
+#Nesting Full Objects: (You only got product ID, but want to get full product details from a serializer called ListingSerializer through the product ID)
+product_details = ListingSerializer(source='product', read_only=True)
+
+#Hiding sensitive output:
+#Databse keep hashed vers. of password, but serializer ensure that when Django response with 201 Created status, the password string is not sent with the outgoing JSON. Hence the write_only = true.
+password = serializers.CharField(write_only=True)
+
+#Double-Entry Validation
+#Don't need to have a password_confirm column on the DB so do validation in serializer.py.
+password_confirm = serializers.CharField(write_only=True)
+```
+
 ### models.py
 ```python
 from django.db import models
@@ -34,13 +70,33 @@ class Listing(models.Model):
 ```
 **on_delete=models.CASCADE** is vital. It tells PostgreSQL: "If this Category is deleted, automatically delete all the listings assigned to it."
 #### Why related_name Matters
-When you define your ForeignKey, the related_name attribute determines the name of the Python property you use to initiate this search.
-```
+
+related_name allows you to do reverse searching. For example,
+```python
+#inside Listing's model.py
 category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='listings')
 ```
+
+By having related_name = 'listings', I can access listings that are related to a specific category as such:
+
+```python
+# 1. Fetch the specific category row from the database 
+my_category = Category.objects.get(id=id) 
+
+# 2. Access the reverse relationship to get all connected listings 
+all_category_listings = my_category.listings.all()
+```
+
+Even if there is no listings column in my category table.
+
+---
+
+When you define your ForeignKey, the related_name attribute determines the name of the Python property you use to initiate this search.
+
 - If you set related_name='listings', you type: my_category.listings.all()
 - If you set related_name='products', you type: my_category.products.all()
 - If you **omit** related_name, Django creates a default one for you using the model name lowercase followed by _set: my_category.listing_set.all()
+
 
 #### Updating DB (Migrations)
 1. Inspects models.py and generates a "blueprint" file of the changes
@@ -50,6 +106,8 @@ category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='l
 	`python manage.py migrate
 
 ### serializers.py
+
+Serializers is just how to convert JSON to object that Django can use! If the data is not being transported from backend to frontend or viceversa, no need to serialise it :D
 
 ```python
 # serializers.py
@@ -233,6 +291,35 @@ export function CartButton() {
 }
 ```
 
+Alternatively if need to deal with images:
+```jsx
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData();
+        formData.append("item_name", item_name);
+        formData.append("item_price", item_price);
+        formData.append("category", '1');
+
+        if (imageFile) {
+            formData.append("image", imageFile);
+        }
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/listings/`, {
+                method: "POST",
+                body: formData,
+            });
+
+            if (response.ok) {
+                alert("Listing added locally successfully!");
+            }
+
+        } catch (error) {
+            console.error("Error saving listing:", error);
+        }
+    };
+```
 #### Get:
 ```Javascript
 import React, { useState, useEffect } from 'react';
@@ -296,3 +383,145 @@ export default function SnippetList() {
 }
 ```
 
+### urls.py
+
+```
+# Django `urls.py` Cheat Sheet
+
+## TL;DR Core Concept
+`urlpatterns` is Django's traffic controller.
+It matches incoming browser URLs (minus domain & leading slash) to specific backend views, scanning sequentially from top to bottom. 
+
+* Connected via `ROOT_URLCONF` in `settings.py`.
+```
+---
+#### Anatomy of a Path
+```python
+path('route/', views.function_name, name='unique-nickname')
+```
+
+- **Route:** The URL pattern string. Always include a trailing slash `/`.
+- **View:** The code that runs when the URL is matched.
+- **Name:** A unique nickname. Used for reverse URL lookups so changing the URL string won't break your app.
+
+#### Elaboration on name:
+
+Usually to use on HTML:
+```HTML
+<a href="{% url 'article-view' pk=article.id %}">Read Article</a>
+```
+This will tell Django to substitute this tag with:
+```HTML
+<a href="/articles/42/">Read Article</a>
+```
+
+If you require the URL inside Django's views.py:
+- `reverse()`: Computes the routing table and returns a raw string (e.g., `"/path/to/page/"`).
+- `redirect()`: A shortcut that calls `reverse()` internally and immediately sends an HTTP 302 redirect header back to the browser.
+
+e.g
+```Python
+from django.urls import reverse 
+def get_success_url(request): 
+	# Returns the literal string: "/articles/42/" 
+	my_url = reverse('article-view', kwargs={'pk': 42}) return my_url
+```
+
+```Python
+from django.shortcuts import redirect 
+def delete_article(request, pk): 
+	article = Article.objects.get(pk=pk) 
+	article.delete() 
+	# Django calculates the path for 'home' and instantly issues a 302 redirect return redirect('home')
+```
+
+To use with React, need to create a hardcoded API Router instead of using the name parameter as React cannot access Django's python environment to do reverse().
+
+E.g.
+```Javascript
+// src/apiRoutes.js 
+const API_BASE = 'https://api.yourdomain.com'; 
+export const apiRoutes = { 
+login: `${API_BASE}/auth/login/`, // For dynamic URLs, use a function that returns a string 
+userDetail: (userId) => `${API_BASE}/profiles/view/${userId}/`, 
+blogPost: (slug) => `${API_BASE}/blog/posts/${slug}/`, };
+```
+
+
+#### Dynamic Routing (Path Converters)
+Capture values from the URL using `<type:variable_name>`. These are passed directly as arguments to your view.
+```python
+path('user/<int:user_id>/', views.profile)  # Matches: /user/42/
+path('post/<slug:post_slug>/', views.post)  # Matches: /post/my-first-blog/
+```
+- `<int:>` - Positive integers.
+- `<str:>` - Any non-empty string (excluding `/`). _Default_.
+- `<slug:>` - Letters, numbers, hyphens, and underscores.
+- `<uuid:>` - Formatted UUIDs.
+#### Modular Routing (`include`)
+
+Keep apps clean by nesting URLs. The master router chops off its prefix and hands the rest down.
+```python
+#This hands off everything that starts with blog/
+path('blog/', include('blog.urls')) 
+
+# api/urls.py (App-specific)
+path('users/', views.list_users)  # Final URL: /api/users/
+```
+
+Include will pass the result to this file instead and find where to go so that urls.py is not so crowded
+```python
+#In blog/urls.py
+
+from django.urls import path from . 
+import views 
+urlpatterns = [ path('', views.blog_home), # Matches: /blog/ 
+				path('latest/', views.blog_latest), # Matches: /blog/latest/ 
+				]
+```
+
+### apps.py
+
+Inside app.py have a method called `ready()` Django runs this function ONCE when starting up web server.
+
+Import signals in here so python registers event decorators before any traffic hits the endpoints.
+
+E.g.
+```python
+# accounts/apps.py
+from django.apps import AppConfig
+
+class AccountsConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'accounts' # Matches the folder name
+
+    # This method runs the millisecond Django finishes initializing
+    def ready(self):
+        import accounts.signals  # 🌟 This forces Django to read the signals file!
+```
+
+### signals.py
+
+signals.py is Django's built in notification network.
+It allows certain actions in the app to broadcast a announcement to the rest of the project.
+
+E.g.
+```python
+# accounts/signals.py
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User
+from .models import Profile
+
+# 1. The @receiver decorator connects this function to the User model's post_save alarm.
+#sender=User makes it so that the function only wakes up when a User table input is touched.
+@receiver(post_save, sender=User)
+#sender is which model sent the notification
+#instance is the exact python object that was saved
+#kwargs catch all dictionary for any extra parameters passed along with the signal that is not explicity named.
+def create_user_profile(sender, instance, created, **kwargs):
+    # 2. 'created' is a True/False flag. It's True only if a brand-new row was made.
+    if created:
+        # 3. 'instance' is the actual User object that was just saved.
+        Profile.objects.create(user=instance)
+```

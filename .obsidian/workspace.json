@@ -134,35 +134,7 @@
             }
           },
           {
-            "id": "a5eaaa2558588d9c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Run React + Django.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Run React + Django"
-            }
-          },
-          {
             "id": "e2578fbb77c972cf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Run React + Django.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Run React + Django"
-            }
-          },
-          {
-            "id": "a57cee006e679501",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -173,6 +145,20 @@
               },
               "icon": "lucide-file",
               "title": "Using PostgreSQL with django"
+            }
+          },
+          {
+            "id": "a57cee006e679501",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Django Related/Django notes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Django notes"
             }
           },
           {
@@ -228,7 +214,7 @@
             }
           }
         ],
-        "currentTab": 11
+        "currentTab": 10
       }
     ],
     "direction": "vertical"
@@ -393,10 +379,18 @@
   },
   "active": "a57cee006e679501",
   "lastOpenFiles": [
+    "Using PostgreSQL with django.md",
+    "Pip notes.md",
+    "Github Notes.md",
+    "Django Related/Using PostgreSQL with django.md",
+    "Django Related/Run React + Django.md",
+    "Django Related/Package.json.md",
+    "Django Related/Django notes.md",
+    "Django Related/Django ORM.md",
+    "Django Related",
     "Run React + Django.md",
     "Package.json.md",
     "Django notes.md",
-    "Using PostgreSQL with django.md",
     "Untitled",
     "Welcome.md",
     "Django ORM.md",
@@ -416,19 +410,11 @@
     "'/Users/zhikaikoh/Documents",
     "'/Users/zhikaikoh",
     "'/Users",
-    "'",
     "React/useContext.md",
     "React/useEffect.md",
     "React/useState.md",
     "React/Router.md",
     "React/Hooks.md",
-    "React/Portals.md",
-    "React/ForwardRef.md",
-    "React/Transitions.md",
-    "React/Suspense.md",
-    "React/Forms.md",
-    "React/Lists.md",
-    "React/Conditionals.md",
     "Untitled.canvas"
   ]
 }
