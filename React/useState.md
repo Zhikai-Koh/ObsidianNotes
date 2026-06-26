@@ -1,3 +1,4 @@
+Note that props are read only, can only set state using the given function.
 ```jsx
 import { useState } from "react";
 

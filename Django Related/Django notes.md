@@ -218,7 +218,48 @@ class AddToCartView(APIView):
 	    return Response(serializer.data) # <-- This data drops directly into your React 'data' state!
 ```
 
-in backend/urls.py file:
+#### Note on how images work:
+
+Using .values() to get images like:
+```python
+sold_orders = Order.objects.filter(
+		buyer=request.user,
+		listingItem__status='sold'
+	).values(
+		'listingItem__listing__image'
+	).annotate(
+		quantity=Count('id')
+)
+```
+This will skip serialisation and just get what is put inside the DB such as: listings/image_name.jpg
+
+```python
+def get(self, request):
+
+	listings = Listing.objects.all()
+	
+	data = []
+
+	for listing in listings:
+		if listing.total_unsold > 0:
+			data.append({
+				"image": listing.image.url if listing.image else None,
+			})
+
+return Response(data)
+```
+Using the serialiser to get image OR using listing.image.url as such will go through Django's system and get the image link + it will check what MEDIA_URL is in settings.py and append it in.
+E.g. if MEDIA_URL = /media/, "image": "/media/listings/image_name.jpg" will be sent back
+
+**For the above two methods, you still need to add your website's base URL to the start.**
+
+```python
+"image": request.build_absolute_uri(listing.image.url) if listing.image else None
+```
+Use this so that the absolute path will be sent back. E.g.
+http://127.0.0.1:8000/media/listings/image_name.jpg 
+
+#### in backend/urls.py file:
 ```python
 from django.contrib import admin
 from django.urls import path
